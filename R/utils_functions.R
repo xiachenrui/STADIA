@@ -164,7 +164,7 @@ InitiParameters <- function(object.list, k = 7, d = 35) {
     if (b == 1) {
         data2use <- t(GetAssayData(object.list[[1]], slot = "scale.data"))
     } else {
-        data_use_list <- sapply(object.list, function(object) {
+        data_use_list <- lapply(object.list, function(object) {
             Seurat::GetAssayData(object, slot = "scale.data")
         })
         data2use <- t(Reduce(cbind, data_use_list)) # nxp
